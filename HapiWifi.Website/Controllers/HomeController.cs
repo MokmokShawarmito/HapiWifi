@@ -46,9 +46,13 @@ namespace HapiWifi.Website.Controllers
 
         public ActionResult Locations()
         {
-            ViewBag.Message = "Your contact page.";
+            var companycontoller = ControllerFactory.CreateCompanyController();
 
-            return View();
+            IEnumerable<Company> companies = companycontoller.GetAll();
+
+            //ViewBag.Message = "Your contact page.";
+
+            return View(companies);
         }
     }
 }
