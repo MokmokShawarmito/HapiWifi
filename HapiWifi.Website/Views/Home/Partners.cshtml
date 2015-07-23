@@ -1,0 +1,57 @@
+﻿@model System.Collections.Generic.IEnumerable<HapiWifi.Core.Models.Company>
+@using HapiWifi.Core.Models
+
+@{
+    ViewBag.Title = "Partners";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Partners</h2>
+
+<div id="wrapper" class="container-fluid">
+    <div id="main" class="col-xs-12 col-sm-12  col-md-12" style="">
+        <!--Ateneo Main Logo with Happy Wifi-->
+    </div>
+    <div id="ads" class="col-xs-12 col-sm-12  col-md-12">
+        <div id="ads_body">
+            @foreach (var i in Model)
+            {
+                <div id="item-" +i class="col-xs-1 col-sm-2  col-md-2 item display-modal" data-title="@i.Name" data-image="@i.PicLogo" data-location="" data-contact="" data-caption="@i.TagLine" data-website="@i.Website">
+                    <img id="pic-" +i class="pic" src="@i.PicLogo" alt="acom">
+                    <h4 id="title-" +i class="title">@i.Name</h4>
+                </div>
+            }
+        </div>
+    </div>
+    <!--<div id="darkbox"></div>-->
+    <div id="ads-bg">
+        <button type="button" class="close" aria-hidden="true">&times</button>
+        <img id="pic-bg" src="logo/woodcraft.jpg" alt="acom">
+        <h4 id="title-bg" class="title">Title 10</h4>
+        <p id="description"></p>
+    </div>
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header alert alert-grey">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Company Name</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="thumbnail">
+                        <img id="company-logo" src="logo/woodcraft.jpg">
+                    </div>
+                    <p><strong>Location: </strong><span id="company-location">Davao</span></p>
+                    <p><strong>Contact No.: </strong><span id="company-contact">+639198907855</span></p>
+                    <p><strong>Description: </strong><br><span id="company-caption">A company that provides pleasure.</span></p>
+                </div>
+                <div class="modal-footer">
+                    <a id="company-website" type="button" class="btn btn-success" href="">Visit Page</a>
+                    <button type="button" class="btn btn-muted" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

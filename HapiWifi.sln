@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HapiWifi.Core", "HapiWifi.Core\HapiWifi.Core.csproj", "{4E0CFEE5-22EA-406B-947C-6C0B4C7295B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing", "Testing\Testing.csproj", "{292F68BA-F402-4345-B960-54FA2099B473}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HapiWifi.Website", "HapiWifi.Website\HapiWifi.Website.csproj", "{F12DFCB2-2D3D-4B0D-8580-E4484B50EBE6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4E0CFEE5-22EA-406B-947C-6C0B4C7295B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E0CFEE5-22EA-406B-947C-6C0B4C7295B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E0CFEE5-22EA-406B-947C-6C0B4C7295B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E0CFEE5-22EA-406B-947C-6C0B4C7295B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{292F68BA-F402-4345-B960-54FA2099B473}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{292F68BA-F402-4345-B960-54FA2099B473}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{292F68BA-F402-4345-B960-54FA2099B473}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{292F68BA-F402-4345-B960-54FA2099B473}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F12DFCB2-2D3D-4B0D-8580-E4484B50EBE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F12DFCB2-2D3D-4B0D-8580-E4484B50EBE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F12DFCB2-2D3D-4B0D-8580-E4484B50EBE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F12DFCB2-2D3D-4B0D-8580-E4484B50EBE6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

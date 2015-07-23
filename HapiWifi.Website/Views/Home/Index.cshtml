@@ -1,0 +1,57 @@
+﻿@model System.Collections.Generic.IEnumerable<HapiWifi.Core.Models.Company>
+@using HapiWifi.Core.Models
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            @*int count = 0;*@
+            @foreach (var item in Model)
+            {
+                @*
+                if(@count == 0){
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                }
+                else
+                {
+                    <li data-target="#myCarousel" data-slide-to="@count"></li>
+                }
+                @count++;
+                    *@
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            }
+        </ol>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            @foreach (var item in Model)
+	        {
+                //if condition
+                <div class="item active">
+                    <img src="img_chania.jpg" alt="Chania">
+                </div>
+	        }
+        </div>
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    @foreach (var item in Model)
+    {
+        <div class="btn">
+            @item.Id
+        </div>
+        <div class="btn">
+            @item.Name
+        </div>
+    }
+</div>
