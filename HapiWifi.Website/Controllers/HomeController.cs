@@ -54,5 +54,16 @@ namespace HapiWifi.Website.Controllers
 
             return View(companies);
         }
+
+        public ActionResult Products()
+        {
+            var companycontoller = ControllerFactory.CreateCompanyController();
+
+            IEnumerable<Company> companies = companycontoller.GetAll();
+
+            //ViewBag.Message = "Your contact page.";
+
+            return View(companies);
+        }
     }
 }

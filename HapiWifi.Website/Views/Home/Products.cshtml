@@ -1,0 +1,119 @@
+﻿@model System.Collections.Generic.IEnumerable<HapiWifi.Core.Models.Company>
+@using HapiWifi.Core.Models
+
+@{
+    ViewBag.Title = "Products";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Products</h2>
+
+<div class="container-fluid">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            @{
+                int counter = 0;
+            }
+
+            @foreach (var item in Model)
+            {
+                if (counter == 0)
+                {
+                    <li data-target="#myCarousel" data-slide-to="@counter" class="active"></li>
+                }
+                else
+                {
+                    <li data-target="#myCarousel" data-slide-to="@counter"></li>
+                }
+                counter++;
+            }
+        </ol>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            @foreach (var item in Model)
+            {
+                //if condition
+                <div class="item active">
+                    <img src="@item.PicBanner" alt="@item.Name">
+                </div>
+            }
+        </div>
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <!-- Product List -->
+    <div id="productList" class="col-xs-12 col-sm-12 col-md-12">
+        <h3>Services</h3>
+        @foreach (var item in Model)
+        {
+            <div class="media display-modal">
+                <div class="media-left pull-left">
+                    <a href="#">
+                        <img class="media-object" src="@item.PicLogo" alt="@item.Name" style="height:100px;width:100px;">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">@item.Name</h4>
+                    <em class="media-body"><small>"@item.TagLine"</small></em>
+                    <p>@item.Description</p>
+                </div>
+            </div>
+        }
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header alert alert-grey">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Company Name</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="thumbnail">
+                        <img id="company-logo" src="logo/woodcraft.jpg">
+                    </div>
+                    <p><strong>Description: </strong><br><span id="company-location">Davao</span></p>
+                    <p><strong>Price: &#8369</strong><span id="company-caption">100.00</span></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-muted" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+
+<script>
+        $(document).ready(function () {
+            $('.display-modal').click(function () {
+                /*
+                $('#myModalLabel').text($(this).attr('data-title'));
+                $('#company-location').text($(this).attr('data-location'));
+                $('#company-contact').text($(this).attr('data-contact'));
+                $('#company-caption').text($(this).attr('data-caption'));
+
+                var logo = document.getElementById('company-logo');
+                var website = document.getElementById('company-website');
+
+                logo.setAttribute('src',$(this).attr('data-image'));
+                website.setAttribute('href',$(this).attr('data-website'));
+                */
+                $('#myModal').modal('show');
+
+            });
+        });
+</script>
