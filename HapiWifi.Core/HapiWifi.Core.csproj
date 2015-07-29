@@ -54,6 +54,10 @@
     <Compile Include="DAL\HapiWifiDB.cs" />
     <Compile Include="Factories\ContextFactory.cs" />
     <Compile Include="Factories\ControllerFactory.cs" />
+    <Compile Include="Migrations\201507291642433_update.cs" />
+    <Compile Include="Migrations\201507291642433_update.Designer.cs">
+      <DependentUpon>201507291642433_update.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Branch.cs" />
     <Compile Include="Models\Company.cs" />
@@ -61,7 +65,11 @@
     <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201507291642433_update.resx">
+      <DependentUpon>201507291642433_update.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />

@@ -13,8 +13,8 @@
         <div id="ads_body">
             @foreach (var i in Model)
             {
-                <div id="item-" +i class="col-xs-1 col-sm-2  col-md-2 item display-modal" data-title="@i.Name" data-image="@i.PicLogo" data-location="" data-contact="" data-caption="@i.TagLine" data-website="@i.Website">
-                    <img id="pic-" +i class="pic" src="@i.PicLogo" alt="acom" style="height:50px;width:50px;">
+                <div id="item-" +i class="col-xs-1 col-sm-2  col-md-2 item display-modal" data-title="@i.Name" data-image="@i.LogoImagePath" data-location="" data-contact="" data-caption="@i.TagLine" data-website="@i.Website">
+                    <img id="pic-" +i class="pic" src="@i.LogoImagePath" alt="acom" style="height:50px;width:50px;">
                 </div>
             }
         </div>
