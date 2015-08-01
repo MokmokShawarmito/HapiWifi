@@ -175,6 +175,8 @@ namespace HapiWifi.Web.Controllers
             file.SaveAs(fileSavePath);
             filePath = String.Format("{0}{1}", serverPath, filename);
 
+            filePath = filePath.Replace("~", "");
+
             return filePath;
         }
 
