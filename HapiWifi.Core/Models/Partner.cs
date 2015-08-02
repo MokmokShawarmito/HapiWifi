@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HapiWifi.Core.Models
 {
-    public class Partner
+    public class Partnership
     {
         public int Id { get; set; }
         public int companyID { get; set; }
@@ -14,5 +14,8 @@ namespace HapiWifi.Core.Models
         public int partnerOrder { get; set; }
         public bool isShow { get; set; }
         public bool isFeatured { get; set; }
+
+        //public Company Company { get; set; }
+        //public Company Partner { get; set; }
     }
 }

@@ -1,0 +1,65 @@
+﻿@model HapiWifi.Core.Models.Partnership
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Partnership</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.companyID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.companyID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.partnerID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.partnerID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.partnerOrder)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.partnerOrder)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.isShow)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isShow)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.isFeatured)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isFeatured)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

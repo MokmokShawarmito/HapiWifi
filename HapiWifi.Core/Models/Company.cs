@@ -16,5 +16,15 @@ namespace HapiWifi.Core.Models
         public string BannerImagePath { get; set; }
         public string LogoImagePath { get; set; }
         public string Website { get; set; }
+
+        //public IEnumerable<Partnership> Partners { get; set; }
     }
+
+    //why not make Company.Type as an enum type?
+    //enum CompanyType
+    //{
+    //    Test,
+    //    Gay,
+    //    Lesbian
+    //}
 }

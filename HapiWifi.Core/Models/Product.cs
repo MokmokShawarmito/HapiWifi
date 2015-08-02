@@ -9,7 +9,7 @@ namespace HapiWifi.Core.Models
     public class Product
     {
         public int Id { get; set; }
-        public int CompanyID { get; set; }
+        public int CompanyId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
@@ -17,5 +17,7 @@ namespace HapiWifi.Core.Models
         public bool isShow { get; set; }
         public bool isFeatured { get; set; }
         public string Image { get; set; }
+
+        //public Company Company { get; set; }
     }
 }
