@@ -21,7 +21,7 @@ namespace HapiWifi.Web.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("aspidentitydb", throwIfV1Schema: false)
         {
         }
 
