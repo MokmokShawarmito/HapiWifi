@@ -13,11 +13,11 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.CompanyId)
+            @Html.DisplayNameFor(model => model.Company.Name)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.CompanyId)
+            @Html.DisplayFor(model => model.Company.Name)
         </dd>
 
         <dt>
@@ -61,19 +61,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.isFeatured)
+            @Html.DisplayNameFor(model => model.ImagePath)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.isFeatured)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Image)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Image)
+            @Html.DisplayFor(model => model.ImagePath)
         </dd>
 
     </dl>

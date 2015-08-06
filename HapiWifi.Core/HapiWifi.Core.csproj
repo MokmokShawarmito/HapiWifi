@@ -54,6 +54,14 @@
     <Compile Include="DAL\HapiWifiDB.cs" />
     <Compile Include="Factories\ContextFactory.cs" />
     <Compile Include="Factories\ControllerFactory.cs" />
+    <Compile Include="Migrations\201508061552414_addedCompanyProductAssociation.cs" />
+    <Compile Include="Migrations\201508061552414_addedCompanyProductAssociation.Designer.cs">
+      <DependentUpon>201508061552414_addedCompanyProductAssociation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201508061633538_addedDataAnnotations.cs" />
+    <Compile Include="Migrations\201508061633538_addedDataAnnotations.Designer.cs">
+      <DependentUpon>201508061633538_addedDataAnnotations.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Branch.cs" />
     <Compile Include="Models\Company.cs" />
@@ -64,6 +72,14 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201508061552414_addedCompanyProductAssociation.resx">
+      <DependentUpon>201508061552414_addedCompanyProductAssociation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201508061633538_addedDataAnnotations.resx">
+      <DependentUpon>201508061633538_addedDataAnnotations.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

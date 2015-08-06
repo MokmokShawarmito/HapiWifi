@@ -1,6 +1,8 @@
 namespace HapiWifi.Core.Migrations
 {
+    using HapiWifi.Core.Models;
     using System;
+    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
@@ -27,6 +29,13 @@ namespace HapiWifi.Core.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            context.Companies.AddOrUpdate(c => c.Id,
+                new Company() { Id = 1, Name="Test",TagLine="Test",Type="Test",Website="Test",LogoImagePath="Test",Description="Test",BannerImagePath="Test" }
+                );
+
+            context.SaveChanges();
         }
+
     }
 }

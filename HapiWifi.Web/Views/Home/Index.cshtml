@@ -56,21 +56,21 @@
 @Scripts.Render("~/bundles/bootstrap")
 
 <script>
-    $(document).ready(function () {
-        $('.display-modal').click(function () {
-            $('#myModalLabel').text($(this).attr('data-title'));
-            $('#company-location').text($(this).attr('data-location'));
-            $('#company-contact').text($(this).attr('data-contact'));
-            console.log($(this).attr('data-caption'));
-            $('#company-caption').text($(this).attr('data-caption'));
+    //$(document).ready(function () {
+    //    $('.display-modal').click(function () {
+    //        $('#myModalLabel').text($(this).attr('data-title'));
+    //        $('#company-location').text($(this).attr('data-location'));
+    //        $('#company-contact').text($(this).attr('data-contact'));
+    //        console.log($(this).attr('data-caption'));
+    //        $('#company-caption').text($(this).attr('data-caption'));
 
-            var logo = document.getElementById('company-logo');
-            var website = document.getElementById('company-website');
+    //        var logo = document.getElementById('company-logo');
+    //        var website = document.getElementById('company-website');
 
-            logo.setAttribute('src',$(this).attr('data-image'));
-            website.setAttribute('href',$(this).attr('data-website'));
-            $('#myModal').modal('show');
+    //        logo.setAttribute('src',$(this).attr('data-image'));
+    //        website.setAttribute('href',$(this).attr('data-website'));
+    //        $('#myModal').modal('show');
 
-        });
-    });
+    //    });
+    //});
 </script>

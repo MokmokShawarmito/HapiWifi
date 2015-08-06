@@ -18,7 +18,8 @@ namespace HapiWifi.Web.Controllers
         // GET: Branches
         public ActionResult Index()
         {
-            return View(db.Branches.ToList());
+            var branches = db.Branches.Include(b => b.Company);
+            return View(branches.ToList());
         }
 
         // GET: Branches/Details/5
@@ -39,6 +40,7 @@ namespace HapiWifi.Web.Controllers
         // GET: Branches/Create
         public ActionResult Create()
         {
+            ViewBag.CompanyID = new SelectList(db.Companies, "Id", "Name");
             return View();
         }
 
@@ -47,7 +49,7 @@ namespace HapiWifi.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,CompanyID,Location,Contact,Email,Type,Image")] Branch branch)
+        public ActionResult Create([Bind(Include = "Id,Location,Contact,Email,Type,ImagePath,CompanyID")] Branch branch)
         {
             if (ModelState.IsValid)
             {
@@ -56,6 +58,7 @@ namespace HapiWifi.Web.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.CompanyID = new SelectList(db.Companies, "Id", "Name", branch.CompanyID);
             return View(branch);
         }
 
@@ -71,6 +74,7 @@ namespace HapiWifi.Web.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.CompanyID = new SelectList(db.Companies, "Id", "Name", branch.CompanyID);
             return View(branch);
         }
 
@@ -79,7 +83,7 @@ namespace HapiWifi.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,CompanyID,Location,Contact,Email,Type,Image")] Branch branch)
+        public ActionResult Edit([Bind(Include = "Id,Location,Contact,Email,Type,ImagePath,CompanyID")] Branch branch)
         {
             if (ModelState.IsValid)
             {
@@ -87,6 +91,7 @@ namespace HapiWifi.Web.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.CompanyID = new SelectList(db.Companies, "Id", "Name", branch.CompanyID);
             return View(branch);
         }
 

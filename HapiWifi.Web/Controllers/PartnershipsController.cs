@@ -39,6 +39,8 @@ namespace HapiWifi.Web.Controllers
         // GET: Partnerships/Create
         public ActionResult Create()
         {
+            ViewBag.CompanyID = new SelectList(db.Companies, "Id", "Name" );
+            ViewBag.PartnerID = new SelectList(db.Companies, "Id", "Name");
             return View();
         }
 

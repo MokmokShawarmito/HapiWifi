@@ -13,7 +13,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.CompanyId)
+            @Html.DisplayNameFor(model => model.Company.Name)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Name)
@@ -31,10 +31,7 @@
             @Html.DisplayNameFor(model => model.isShow)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.isFeatured)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Image)
+            @Html.DisplayNameFor(model => model.ImagePath)
         </th>
         <th></th>
     </tr>
@@ -42,7 +39,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.CompanyId)
+            @Html.DisplayFor(modelItem => item.Company.Name)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Name)
@@ -60,10 +57,7 @@
             @Html.DisplayFor(modelItem => item.isShow)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.isFeatured)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Image)
+            @Html.DisplayFor(modelItem => item.ImagePath)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

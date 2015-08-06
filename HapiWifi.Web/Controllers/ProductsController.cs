@@ -18,7 +18,8 @@ namespace HapiWifi.Web.Controllers
         // GET: Products
         public ActionResult Index()
         {
-            return View(db.Products.ToList());
+            var products = db.Products.Include(p => p.Company);
+            return View(products.ToList());
         }
 
         // GET: Products/Details/5
@@ -39,6 +40,7 @@ namespace HapiWifi.Web.Controllers
         // GET: Products/Create
         public ActionResult Create()
         {
+            ViewBag.CompanyId = new SelectList(db.Companies, "Id", "Name");
             return View();
         }
 
@@ -47,7 +49,7 @@ namespace HapiWifi.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,CompanyId,Name,Description,Price,Order,isShow,isFeatured,Image")] Product product)
+        public ActionResult Create([Bind(Include = "Id,Name,Description,Price,Order,isShow,ImagePath,CompanyId")] Product product)
         {
             if (ModelState.IsValid)
             {
@@ -56,6 +58,7 @@ namespace HapiWifi.Web.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.CompanyId = new SelectList(db.Companies, "Id", "Name", product.CompanyId);
             return View(product);
         }
 
@@ -71,6 +74,7 @@ namespace HapiWifi.Web.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.CompanyId = new SelectList(db.Companies, "Id", "Name", product.CompanyId);
             return View(product);
         }
 
@@ -79,7 +83,7 @@ namespace HapiWifi.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,CompanyId,Name,Description,Price,Order,isShow,isFeatured,Image")] Product product)
+        public ActionResult Edit([Bind(Include = "Id,Name,Description,Price,Order,isShow,ImagePath,CompanyId")] Product product)
         {
             if (ModelState.IsValid)
             {
@@ -87,6 +91,7 @@ namespace HapiWifi.Web.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.CompanyId = new SelectList(db.Companies, "Id", "Name", product.CompanyId);
             return View(product);
         }
 
