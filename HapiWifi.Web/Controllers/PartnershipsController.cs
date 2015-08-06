@@ -55,7 +55,8 @@ namespace HapiWifi.Web.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            ViewBag.CompanyID = new SelectList(db.Companies, "Id", "Name", partnership.companyID);
+            ViewBag.PartnerID = new SelectList(db.Companies, "Id", "Name", partnership.partnerID);
             return View(partnership);
         }
 
