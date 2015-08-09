@@ -11,7 +11,7 @@ namespace HapiWifi.Core.Factories
 {
     public class ControllerFactory
     {
-        public static IController<Company> CreateCompanyController()
+        public static ICompanyController CreateCompanyController()
         {
             return new CompanyController();
         }

@@ -48,8 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstracts\ICompanyController.cs" />
     <Compile Include="Abstracts\IController.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="Controllers\CompanyController.cs" />
     <Compile Include="DAL\HapiWifiDB.cs" />
     <Compile Include="Factories\ContextFactory.cs" />

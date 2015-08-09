@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace HapiWifi.Core.Controllers
 {
-    public class CompanyController : IController<Company>
+    public class CompanyController : ICompanyController
     {
 
         public IEnumerable<Company> GetAll()
@@ -61,6 +61,34 @@ namespace HapiWifi.Core.Controllers
             }
 
             return true;
+        }
+
+        public IEnumerable<Company> GetAllCompanyPartners(int id)
+        {
+            List<Company> partners = new List<Company>();
+            List<int> partnerIDs = new List<int>();
+
+            using (var db = ContextFactory.CreateContext())
+            {
+                //get all partners
+                foreach (var item in db.Partnerships)
+                {
+                    if (item.companyID == id)
+                    {
+                        partnerIDs.Add(item.partnerID);
+                    }
+                }
+
+                //fetch partners
+                foreach (var item in partnerIDs)
+                {
+                    var company = db.Companies.SingleOrDefault(c => c.Id == item);
+                    if (company != null)
+                        partners.Add(company);
+                }
+            }
+
+            return partners;
         }
     }
 }

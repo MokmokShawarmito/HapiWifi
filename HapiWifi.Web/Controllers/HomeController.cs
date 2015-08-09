@@ -14,6 +14,7 @@ namespace HapiWifi.Web.Controllers
         public ActionResult Index()
         {
             string company = "";
+            int temp = 0;
             var companycontoller = ControllerFactory.CreateCompanyController();
             
             if(Request.QueryString["company"] != null)
@@ -22,7 +23,16 @@ namespace HapiWifi.Web.Controllers
             }
 
             //apply filter based on company query string.
-            IEnumerable<Company> companies = companycontoller.GetAll();
+            IEnumerable<Company> companies = new List<Company>();
+
+            if (Int32.TryParse(company, out temp))
+            {
+                companies = companycontoller.GetAllCompanyPartners(temp);
+            }
+            else
+            {
+                companies = companycontoller.GetAll();
+            }
 
             return View(companies);
         }
