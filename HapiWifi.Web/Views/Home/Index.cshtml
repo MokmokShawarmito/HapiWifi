@@ -5,8 +5,21 @@
     ViewBag.Title = "Home Page";
 }
 
+<style>
+    .company-thumbnail{
+        max-height:386px;
+        min-height:386px;
+        margin-bottom:0;
+    }
+
+    .caption h3{
+        margin:0;
+    }
+</style>
+
 <!-- START CAROUSEL-->
-<div class="row carousel-holder"  style="margin-bottom:20px;">
+<div class="row carousel-holder"  style="margin-top:12px;">
+
     <div class="col-md-12">
         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
@@ -33,6 +46,13 @@
             </a>
         </div>
     </div>
+
+    <div class="clearfix"></div>
+    <hr />
+
+    <div class="col-md-12 text-center">
+        <h2 class="text-primary"> Our Partners </h2>
+    </div>
 </div>
 <!-- END CAROUSEL-->
 
@@ -42,11 +62,12 @@
     @foreach (var c in Model)
     {
         <div class="col-sm-6 col-lg-3 col-md-3 hero-feature display-modal" data-title="@c.Name" data-image="@c.LogoImagePath" data-location="" data-contact="" data-caption="@c.TagLine" data-website="@c.Website">
-            <div class="thumbnail">
-                <img src="http://placehold.it/800x500" alt="">
+            <div class="thumbnail company-thumbnail">
+                <img src="@c.LogoImagePath" alt="">
+                @*<img src="http://placehold.it/800x500" alt="">*@
                 <div class="caption text-center">
                     <h3>@c.Name</h3>
-                    <p>@c.Description</p>
+                    <p>@(c.TagLine.Length > 60 ? string.Format("{0}...", c.TagLine.Substring(0,60)) : c.TagLine)</p>
                     <p>
                         <a href="#" class="btn btn-primary">Website</a> <a href="#" class="btn btn-default">More Info</a>
                     </p>
@@ -54,8 +75,22 @@
             </div>
         </div>
     }
+
+    <div class="clearfix"></div>
+    <hr />
 </div>
 <!-- end data list-->
+
+<!-- START Advertise Campaign -->
+<div class="row">
+    <div class="col-xs-8 col-xs-offset-2 text-center">
+        <h2>Advertise Here</h2>
+        <p style="">Bootstrap (currently v3.3.5) has a few easy ways to quickly get started, each one appealing to a different skill level and use case. Read through to see what suits your particular needs.</p>
+        <p><div class="btn btn-primary" > Email Us</div></p>
+    </div>
+</div>
+<!-- END Advertise Campaign -->
+
 
 <!-- START Modal-->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -87,23 +122,23 @@
 
 @section scripts{
     <script>
-    //$(document).ready(function () {
-    //    $('.display-modal').click(function () {
-    //        $('#myModalLabel').text($(this).attr('data-title'));
-    //        $('#company-location').text($(this).attr('data-location'));
-    //        $('#company-contact').text($(this).attr('data-contact'));
-    //        console.log($(this).attr('data-caption'));
-    //        $('#company-caption').text($(this).attr('data-caption'));
+    $(document).ready(function () {
+        $('.display-modal').click(function () {
+            $('#myModalLabel').text($(this).attr('data-title'));
+            $('#company-location').text($(this).attr('data-location'));
+            $('#company-contact').text($(this).attr('data-contact'));
+            console.log($(this).attr('data-caption'));
+            $('#company-caption').text($(this).attr('data-caption'));
 
-    //        var logo = document.getElementById('company-logo');
-    //        var website = document.getElementById('company-website');
+            var logo = document.getElementById('company-logo');
+            var website = document.getElementById('company-website');
 
-    //        logo.setAttribute('src',$(this).attr('data-image'));
-    //        website.setAttribute('href',$(this).attr('data-website'));
-    //        $('#myModal').modal('show');
+            logo.setAttribute('src',$(this).attr('data-image'));
+            website.setAttribute('href',$(this).attr('data-website'));
+            $('#myModal').modal('show');
 
-    //    });
-    //});
+        });
+    });
 </script>    
 }
 
