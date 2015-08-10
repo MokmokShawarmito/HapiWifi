@@ -5,57 +5,88 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="row">
-    <div id="main" class="col-xs-12 col-sm-12  col-md-12" style="">
-        <!--Ateneo Main Logo with Happy Wifi-->
-
-        @foreach (var c in Model)
-        {
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 well item display-modal " data-title="@c.Name" data-image="@c.LogoImagePath" data-location="" data-contact="" data-caption="@c.TagLine" data-website="@c.Website">
-                <img class="company-logo img-responsive" src="@c.LogoImagePath" alt="@c.Name">
+<!-- START CAROUSEL-->
+<div class="row carousel-holder"  style="margin-bottom:20px;">
+    <div class="col-md-12">
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img class="slide-image" src="http://placehold.it/800x300" alt="">
+                </div>
+                <div class="item">
+                    <img class="slide-image" src="http://placehold.it/800x300" alt="">
+                </div>
+                <div class="item">
+                    <img class="slide-image" src="http://placehold.it/800x300" alt="">
+                </div>
             </div>
-        }
-    </div>
-    @*<div id="ads" class="col-xs-12 col-sm-12  col-md-12">
-        <div id="ads_body">
-            @foreach (var i in Model)
-            {
-                <div id="item-" +i class="col-xs-1 col-sm-2  col-md-2 item display-modal" data-title="@i.Name" data-image="@i.LogoImagePath" data-location="" data-contact="" data-caption="@i.TagLine" data-website="@i.Website">
-                    <img id="pic-" +i class="pic" src="@i.LogoImagePath" alt="acom" style="height:50px;width:50px;">
-                </div>
-            }
+            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
         </div>
-    </div>*@
+    </div>
+</div>
+<!-- END CAROUSEL-->
 
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header alert alert-grey">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="myModalLabel">Company Name</h4>
+<!-- START data list-->
+<div class="row">
+
+    @foreach (var c in Model)
+    {
+        <div class="col-sm-6 col-lg-3 col-md-3 hero-feature display-modal" data-title="@c.Name" data-image="@c.LogoImagePath" data-location="" data-contact="" data-caption="@c.TagLine" data-website="@c.Website">
+            <div class="thumbnail">
+                <img src="http://placehold.it/800x500" alt="">
+                <div class="caption text-center">
+                    <h3>@c.Name</h3>
+                    <p>@c.Description</p>
+                    <p>
+                        <a href="#" class="btn btn-primary">Website</a> <a href="#" class="btn btn-default">More Info</a>
+                    </p>
                 </div>
-                <div class="modal-body">
-                    <div class="thumbnail">
-                        <img id="company-logo" src="logo/woodcraft.jpg">
-                    </div>
-                    <p><strong>Tagline: </strong><span id="company-location">Code as fuck</span></p>
-                    <p><strong>Description: </strong><br><span id="company-caption">A company that provides pleasure.</span></p>
+            </div>
+        </div>
+    }
+</div>
+<!-- end data list-->
+
+<!-- START Modal-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header alert alert-grey">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Company Name</h4>
+            </div>
+            <div class="modal-body">
+                <div class="thumbnail">
+                    <img id="company-logo" src="logo/woodcraft.jpg">
                 </div>
-                <div class="modal-footer">
-                    <!--<a id="company-website" type="button" class="btn btn-success" href="sms:"><span class="glyphicon glyphicon-phone"></span> Text</a>-->
-                    <a id="company-website" type="button" class="btn btn-warning" href="mailto:"><span class="glyphicon glyphicon-envelope"></span> Email</a>
-                    <a id="company-website" type="button" class="btn btn-success" href="tel:"><span class="glyphicon glyphicon-earphone"></span> Call</a>
-                    <a id="company-website" type="button" class="btn btn-info" href=""><span class="glyphicon glyphicon-globe"></span> Page</a>
-                </div>
+                <p><strong>Tagline: </strong><span id="company-location">Code as fuck</span></p>
+                <p><strong>Description: </strong><br><span id="company-caption">A company that provides pleasure.</span></p>
+            </div>
+            <div class="modal-footer">
+                <!--<a id="company-website" type="button" class="btn btn-success" href="sms:"><span class="glyphicon glyphicon-phone"></span> Text</a>-->
+                <a id="company-website" type="button" class="btn btn-warning" href="mailto:"><span class="glyphicon glyphicon-envelope"></span> Email</a>
+                <a id="company-website" type="button" class="btn btn-success" href="tel:"><span class="glyphicon glyphicon-earphone"></span> Call</a>
+                <a id="company-website" type="button" class="btn btn-info" href=""><span class="glyphicon glyphicon-globe"></span> Page</a>
             </div>
         </div>
     </div>
 </div>
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/bootstrap")
+<!-- END Modal-->
 
-<script>
+
+
+@section scripts{
+    <script>
     //$(document).ready(function () {
     //    $('.display-modal').click(function () {
     //        $('#myModalLabel').text($(this).attr('data-title'));
@@ -73,4 +104,11 @@
 
     //    });
     //});
-</script>
+</script>    
+}
+
+
+
+
+
+
