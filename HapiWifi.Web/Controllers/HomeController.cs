@@ -13,19 +13,26 @@ namespace HapiWifi.Web.Controllers
         //list down all company(specified on company query string value) partners
         public ActionResult Index()
         {
-            string company = "";
+            string companyName = "";
+            string companyID = "";
             int temp = 0;
             var companycontoller = ControllerFactory.CreateCompanyController();
-            
-            if(Request.QueryString["company"] != null)
+
+            if (Request.QueryString["companyname"] != null)
             {
-                company = Request.QueryString["company"];
+                companyName = Request.QueryString["companyname"];
+                Session["companyname"] = companyName;
+            }
+
+            if (Request.QueryString["companyid"] != null)
+            {
+                companyID = Request.QueryString["companyid"];
             }
 
             //apply filter based on company query string.
             IEnumerable<Company> companies = new List<Company>();
 
-            if (Int32.TryParse(company, out temp))
+            if (Int32.TryParse(companyID, out temp))
             {
                 companies = companycontoller.GetAllCompanyPartners(temp);
             }
