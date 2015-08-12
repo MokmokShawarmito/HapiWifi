@@ -16,5 +16,6 @@ namespace HapiWifi.Core.DAL
         public virtual DbSet<Partnership> Partnerships { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Branch> Branches { get; set; }
+        public virtual DbSet<RequestLog> RequestLogs { get; set; }
     }
 }

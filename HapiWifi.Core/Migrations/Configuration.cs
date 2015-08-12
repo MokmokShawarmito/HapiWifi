@@ -12,27 +12,24 @@ namespace HapiWifi.Core.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            AutomaticMigrationDataLossAllowed = false; 
+            AutomaticMigrationDataLossAllowed = true; 
         }
 
         protected override void Seed(HapiWifi.Core.DAL.HapiWifiDB context)
         {
             //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
-
             context.Companies.AddOrUpdate(c => c.Id,
-                new Company() { Id = 1, Name="Test",TagLine="Test",Type="Test",Website="Test",LogoImagePath="Test",Description="Test",BannerImagePath="Test" }
-                );
+                new Company() { 
+                    Id = 1,
+                    Name = "ATENEO TEST", 
+                    TagLine = "Ate ne eyo de churva la pakaka.",
+                    Type = "advertiser",
+                    Website = "http://xxx.xxx",
+                    LogoImagePath = "/images/uploads/logo/ateneo-812015732pm.png",
+                    BannerImagePath = "/images/uploads/banner/ateneo-812015732pm.png",
+                    Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                }
+            );
 
             context.SaveChanges();
         }

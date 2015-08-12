@@ -61,12 +61,25 @@ namespace HapiWifi.Core.Migrations
                         Price = c.Decimal(nullable: false, precision: 18, scale: 2),
                         Order = c.Int(nullable: false),
                         isShow = c.Boolean(nullable: false),
+                        isFeatured = c.Boolean(nullable: false),
                         ImagePath = c.String(),
                         CompanyId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Companies", t => t.CompanyId, cascadeDelete: true)
                 .Index(t => t.CompanyId);
+            
+            CreateTable(
+                "dbo.RequestLogs",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Page = c.String(),
+                        Date = c.DateTime(nullable: false),
+                        UserAgent = c.String(),
+                        IsMobileRequest = c.Boolean(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
             
         }
         
@@ -76,6 +89,7 @@ namespace HapiWifi.Core.Migrations
             DropForeignKey("dbo.Branches", "CompanyID", "dbo.Companies");
             DropIndex("dbo.Products", new[] { "CompanyId" });
             DropIndex("dbo.Branches", new[] { "CompanyID" });
+            DropTable("dbo.RequestLogs");
             DropTable("dbo.Products");
             DropTable("dbo.Partnerships");
             DropTable("dbo.Companies");

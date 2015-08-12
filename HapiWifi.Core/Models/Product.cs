@@ -20,7 +20,7 @@ namespace HapiWifi.Core.Models
         public decimal Price { get; set; }
         public int Order { get; set; }
         public bool isShow { get; set; }
-        //public bool isFeatured { get; set; }
+        public bool isFeatured { get; set; }
         public string ImagePath { get; set; }
 
         public int CompanyId { get; set; }
