@@ -13,5 +13,6 @@ namespace HapiWifi.Core.Models
         public DateTime Date { get; set; }
         public string UserAgent { get; set; }
         public bool IsMobileRequest { get; set; }
+        public int CompanyID { get; set; }
     }
 }
