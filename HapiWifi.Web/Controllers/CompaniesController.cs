@@ -152,6 +152,8 @@ namespace HapiWifi.Web.Controllers
             base.Dispose(disposing);
         }
 
+        //TODO: Move this chunk to action attribute
+        #region IMAGE SAVING
         /// <summary>
         /// Expects validated image.
         /// </summary>
@@ -195,6 +197,7 @@ namespace HapiWifi.Web.Controllers
                 return false;
 
             return true;
-        }
+        } 
+        #endregion
     }
 }

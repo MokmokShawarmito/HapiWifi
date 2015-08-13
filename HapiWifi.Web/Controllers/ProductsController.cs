@@ -8,12 +8,15 @@ using System.Web;
 using System.Web.Mvc;
 using HapiWifi.Core.DAL;
 using HapiWifi.Core.Models;
+using System.IO;
+using System.Text.RegularExpressions;
 
 namespace HapiWifi.Web.Controllers
 {
     public class ProductsController : Controller
     {
         private HapiWifiDB db = new HapiWifiDB();
+        private const string SERVERPATH = "~/images/uploads/products/";
 
         // GET: Products
         public ActionResult Index()
@@ -49,8 +52,24 @@ namespace HapiWifi.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Description,Price,Order,isShow,isFeatured,ImagePath,CompanyId")] Product product)
+        public ActionResult Create([Bind(Include = "Id,Name,Description,Price,Order,isShow,isFeatured,CompanyId")] Product product)
         {
+            string imagepath = "/images/default.png"; //TODO: change to default image 
+            //grab image here
+            if (Request.Files["ImagePath"] != null)
+            {
+                var image = Request.Files["ImagePath"];
+                Regex rgx = new Regex("[^a-zA-Z0-9 -]");
+                string filename = "";
+                filename = string.Format("{0}-{1}{2}", product.Name, DateTime.Now.ToShortDateString(), DateTime.Now.ToShortTimeString());
+                filename = rgx.Replace(filename, "");
+                filename = filename.Replace(" ", "");
+                filename = filename.ToLower();
+                imagepath = this.SaveImage(image, filename + image.FileName.Substring(image.FileName.LastIndexOf('.')));
+            }
+
+            product.ImagePath = imagepath;
+
             if (ModelState.IsValid)
             {
                 db.Products.Add(product);
@@ -83,7 +102,7 @@ namespace HapiWifi.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Description,Price,Order,isShow,isFeatured,ImagePath,CompanyId")] Product product)
+        public ActionResult Edit([Bind(Include = "Id,Name,Description,Price,Order,isShow,isFeatured,CompanyId")] Product product)
         {
             if (ModelState.IsValid)
             {
@@ -129,5 +148,50 @@ namespace HapiWifi.Web.Controllers
             }
             base.Dispose(disposing);
         }
+
+
+
+        //TODO: Move this chunk to action attribute
+        #region IMAGE SAVING
+        /// <summary>
+        /// Expects validated image.
+        /// </summary>
+        private string SaveImage(HttpPostedFileBase file, string filename)
+        {
+            string filePath = string.Empty;
+            var test = Server.MapPath(SERVERPATH);
+
+            if (!Directory.Exists(Server.MapPath(SERVERPATH)))
+            {
+                Directory.CreateDirectory(Server.MapPath(SERVERPATH));
+            }
+
+            // Get the complete file path then save.
+            string fileSavePath = Path.Combine(Server.MapPath(SERVERPATH), filename);
+            file.SaveAs(fileSavePath);
+            filePath = String.Format("{0}{1}", SERVERPATH, filename);
+
+            filePath = filePath.Replace("~", "");
+
+            return filePath;
+        }
+
+        //validates image.
+        private bool ValidateFile(HttpPostedFileBase file)
+        {
+            int size = file.ContentLength;
+
+            if (file == null)
+                return false;
+
+            if (size > 20000000)
+                return false;
+
+            if (!(file.FileName.ToLower().Contains(".jpg") || file.FileName.ToLower().Contains(".png") || file.FileName.ToLower().Contains(".jpeg")))
+                return false;
+
+            return true;
+        }
+        #endregion
     }
 }

@@ -59,7 +59,7 @@ namespace HapiWifi.Web.app_code
             if (HttpContext.Current.Request.Cookies["ishapiwifilogged"] == null )
             {
                 HttpContext.Current.Response.Cookies["ishapiwifilogged"].Value = "1";
-                HttpContext.Current.Response.Cookies["ishapiwifilogged"].Expires = DateTime.Now.AddHours(6);
+                HttpContext.Current.Response.Cookies["ishapiwifilogged"].Expires = DateTime.Now.AddHours(4);
             }
 
             base.OnActionExecuting(filterContext);
