@@ -7,13 +7,13 @@ namespace HapiWifi.Core.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.1-30610")]
-    public sealed partial class test : IMigrationMetadata
+    public sealed partial class xxx : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(test));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(xxx));
         
         string IMigrationMetadata.Id
         {
-            get { return "201508121922245_test"; }
+            get { return "201508131025116_xxx"; }
         }
         
         string IMigrationMetadata.Source

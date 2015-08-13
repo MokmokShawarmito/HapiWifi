@@ -54,9 +54,9 @@
     <Compile Include="DAL\HapiWifiDB.cs" />
     <Compile Include="Factories\ContextFactory.cs" />
     <Compile Include="Factories\ControllerFactory.cs" />
-    <Compile Include="Migrations\201508121922245_test.cs" />
-    <Compile Include="Migrations\201508121922245_test.Designer.cs">
-      <DependentUpon>201508121922245_test.cs</DependentUpon>
+    <Compile Include="Migrations\201508131025116_xxx.cs" />
+    <Compile Include="Migrations\201508131025116_xxx.Designer.cs">
+      <DependentUpon>201508131025116_xxx.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Branch.cs" />
@@ -71,8 +71,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201508121922245_test.resx">
-      <DependentUpon>201508121922245_test.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201508131025116_xxx.resx">
+      <DependentUpon>201508131025116_xxx.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -162,7 +162,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app_code\RequestLogger.cs" />
+    <Compile Include="app_code\RequestLogger.cs" />
     <Compile Include="app_code\UploadFiles.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />

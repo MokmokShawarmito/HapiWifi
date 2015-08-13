@@ -1,5 +1,6 @@
 ﻿using HapiWifi.Core.Factories;
 using HapiWifi.Core.Models;
+using HapiWifi.Web.app_code;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,7 @@ using System.Web.Mvc;
 
 namespace HapiWifi.Web.Controllers
 {
+    [RequestLogger]
     public class HomeController : Controller
     {
         //list down all company(specified on company query string value) partners
