@@ -13,7 +13,7 @@ namespace HapiWifi.Core.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201508131025116_xxx"; }
+            get { return "201508160831242_xxx"; }
         }
         
         string IMigrationMetadata.Source
